@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios'
+
+const baseurl = "https://candidate-form-1.onrender.com"
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -83,7 +85,7 @@ const handleDeleteDocumentSection = (id) => {
     console.log(title, file)
     try {
       const result = await axios.post(
-          "http://localhost:8000/upload-files",
+          `{baseurl}/upload-files`,
           formData,
           {
               headers: { "Content-Type": "multipart/form-data" },
