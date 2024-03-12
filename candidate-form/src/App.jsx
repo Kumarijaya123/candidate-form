@@ -76,6 +76,7 @@ const handleDeleteDocumentSection = (id) => {
     setDocumentSections(documentSections.filter(section => section.id !== id));
   }
 };
+
   const submitImage = async (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -85,7 +86,7 @@ const handleDeleteDocumentSection = (id) => {
     console.log(title, file)
     try {
       const result = await axios.post(
-          `{baseurl}/upload-files`,
+          `${baseurl}/upload-files`,
           formData,
           {
               headers: { "Content-Type": "multipart/form-data" },
