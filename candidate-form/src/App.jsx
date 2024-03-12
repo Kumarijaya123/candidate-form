@@ -13,6 +13,7 @@ function App() {
   const [file, setFile] = useState("")
   const [allImage, setAllImage] = useState(null)
   const [documentSections, setDocumentSections] = useState([{ id: 1 }])
+  const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
     getPdf()
@@ -88,15 +89,17 @@ const handleDeleteDocumentSection = (id) => {
               headers: { "Content-Type": "multipart/form-data" },
           }
       );
-      console.log(result);
+      console.log(result)
+      setShowThankYou(true)
   } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading image:", error)
   }
   }
 
   return (
     <>
       <div className="container">
+        {!showThankYou ? (
       <form onSubmit={submitImage}>
         <div className="wrapper" style={{ fontFamily: "sans-serif", fontSize: "28px", fontWeight: "700" }}>Candidate Form</div>
         <div className="forms">
@@ -174,6 +177,11 @@ const handleDeleteDocumentSection = (id) => {
   
         <button className='btn btn-primary' type='submit' style={{background:"#1a1c1add", marginTop:"3em", padding:"7px", width:"130px", fontSize:"18px", fontWeight:"700", color:"white"}}>Submit</button>
       </form>
+        ):(
+          <div style={{ textAlign: "center" }}>
+          <h2>Thank you for submitting!</h2>
+        </div>
+        )}
     </div>
     </>
   )
@@ -182,7 +190,3 @@ const handleDeleteDocumentSection = (id) => {
 export default App;
 
 
-
-/*
- <i className="bi bi-file-plus-fill" style={{ fontSize: "1.5rem"}} onClick={handleAddDocumentSection} ></i>
- */
