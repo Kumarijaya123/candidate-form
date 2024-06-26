@@ -104,12 +104,15 @@ const handleDeleteDocumentSection = (id) => {
       <div className="container">
         {!showThankYou ? (
       <form onSubmit={submitImage}>
-        <div className="wrapper" style={{ fontFamily: "sans-serif", fontSize: "28px", fontWeight: "700" }}>Candidate Form</div>
+        <div className="wrapper" style={{ fontFamily: "'Rancho', sans-serif", 
+        fontSize: "40px", fontWeight: "700" , color:"#acd3d3", letterSpacing:"2.5px"}}>Candidate Form</div>
         <div className="forms">
+
           <div className="form-group">
             <h4 className='names'>First Name*</h4>
             <input type="text" className="candi-name" placeholder='Enter your first name here' value={firstName} onChange={handleFirstNameChange} required />
           </div>
+
           <div className="form-group">
             <h4 className='names'>Last Name*</h4>
             <input type="text" className="candi-name" placeholder='Enter your last name here' value={lastName} onChange={handleLastNameChange} required />
@@ -123,22 +126,23 @@ const handleDeleteDocumentSection = (id) => {
           <div className="form-group">
             <h4 className='names'>Date of Birth*</h4>
             <input type="number" className="candi-name" placeholder='Date of Birth' min="18" value={age} onChange={handleAgeChange} required />
-            <h6 className="min-age" style={{ marginTop: "10px", fontFamily: "sans-serif", color: "gray" }}>(Min age should be 18 years)</h6>
+            <h6 className="min-age" style={{ marginTop: "10px", fontFamily: "sans-serif", color: "#ed6442" }}>(Min age should be 18 years)</h6>
           </div>
         </div>
         <div className="forms" style={{ marginTop: "-2em" }}>
           <div className="form-group">
             <h4 className='names'>Residential Address</h4>
-            <h5 className="address" style={{ marginTop: "-10px", fontFamily: "sans-serif", fontWeight: "500", fontSize: "12px" }}>Street 1*</h5>
+            <h5 className="address" style={{ marginTop: "-10px", fontFamily: "sans-serif",
+            fontWeight: "500", fontSize: "14px", color:"#bec2c2" }}>Street 1*</h5>
             <input type="text" className="candi-name" value={address1} onChange={handleAddress1Change} required />
           </div>
           <div className="form-group">
-            <h5 className='address' style={{ marginTop: "5em", fontFamily: "sans-serif", fontWeight: "500", fontSize: "12px" }}>Street 2*</h5>
+            <h5 className='address' style={{ marginTop: "5em", fontFamily: "sans-serif", fontWeight: "500",  fontSize: "14px", color:"#bec2c2"  }}>Street 2*</h5>
             <input type="text" className="candi-name" value={address2} onChange={handleAddress2Change} required />
           </div>
         </div>
         <div className="address-container">
-          <div className="address-wrapper" style={{marginRight:"34em", marginTop:"10px", fontFamily:"sans-serif", fontSize:"14px"}}>
+          <div className="address-wrapper" style={{marginRight:"34em", marginTop:"10px", fontFamily:"sans-serif", fontSize: "14px", color:"#bec2c2" }}>
             <input type="checkbox" id="sameAsResidential" checked={sameAsResidential} onChange={handleSameAsResidentialChange} />
             <label htmlFor="sameAsResidential">Same as Residential Address</label>
           </div>
@@ -146,11 +150,11 @@ const handleDeleteDocumentSection = (id) => {
         <div className="forms" style={{ marginTop: "0.5em" }}>
           <div className="form-group" >
             <h4 className='names'>Permanent Address</h4>
-            <h5 className="address" style={{ marginTop: "-10px", fontFamily: "sans-serif", fontWeight: "500", fontSize: "12px" }}>Street 1</h5>
+            <h5 className="address" style={{ marginTop: "-10px", fontFamily: "sans-serif", fontWeight: "500",  fontSize: "14px", color:"#bec2c2"  }}>Street 1</h5>
             <input type="text" className="candi-name" value={sameAsResidential ? address1 : ''} onChange={handleAddress1Change} required={!sameAsResidential} />
           </div>
           <div className="form-group">
-            <h5 className='address' style={{ marginTop: "5em", fontFamily: "sans-serif", fontWeight: "500", fontSize: "12px" }}>Street 2</h5>
+            <h5 className='address' style={{ marginTop: "5em", fontFamily: "sans-serif", fontWeight: "500",  fontSize: "14px", color:"#bec2c2"  }}>Street 2</h5>
             <input type="text" className="candi-name" value={sameAsResidential ? address2 : ''} onChange={handleAddress2Change} required={!sameAsResidential} />
           </div>
         </div>
@@ -159,30 +163,32 @@ const handleDeleteDocumentSection = (id) => {
             <div className="document-group" onSubmit={submitImage}>
               <h4 className='doc'>Upload Documents</h4>
               <h5 className="files">File Names*</h5>
-              <input type="text" className="doc-name" onChange={(e) => setTitle(e.target.value)} required />
+              <input type="text"  style={{borderRadius:"1em", backgroundColor:"#bec2c2", padding:"12px"}} className="doc-name" onChange={(e) => setTitle(e.target.value)} required />
             </div>
             <div className="document-group">
-              <h5 className="files" style={{ marginTop: "5.2em"}}>Type of File*</h5>
-              <select className="form-control" style={{padding:"7px", marginTop:"-9px"}} onChange={handleFileTypeChange} required>
+              <h5 className="files" style={{ marginTop: "4.5em"}}>Type of File*</h5>
+              <select className="form-control" style={{padding:"12px",borderRadius:"1em",backgroundColor:"#bec2c2", marginTop:"-9px"}} onChange={handleFileTypeChange} required>
                 <option value="">Select</option>
                 <option value="pdf">PDF</option>
                 <option value="image">Image</option>
               </select>
             </div>
             <div className="document-group">
-              <h5 className="files" style={{ marginTop: "5.2em"}}>Upload Document*</h5>
-              <input type="file" className="form-control" accept='application/pdf/image' onChange={(e) => setFile(e.target.files[0])} required/>
+              <h5 className="files" style={{ marginTop: "4.5em"}}>Upload Document*</h5>
+              <input type="file" style={{borderRadius:"1em", padding:"11px"}} className="form-control" 
+              accept='application/pdf/image' onChange={(e) => setFile(e.target.files[0])} required/>
               <i className="bi bi-file-plus-fill" style={{ fontSize: "1.5rem"}} onClick={handleAddDocumentSection} ></i>
               {documentSections.length > 1 && <i className="bi bi-trash-fill" onClick={() =>handleDeleteDocumentSection(section.id)} ></i>}
             </div>
           </div>
         ))}
   
-        <button className='btn btn-primary' type='submit' style={{background:"#1a1c1add", marginTop:"3em", padding:"7px", width:"130px", fontSize:"18px", fontWeight:"700", color:"white"}}>Submit</button>
+        <button className='btn btn-primary' type='submit' style={{background:"#5c7575", marginTop:"3em", padding:"7px", width:"130px", borderRadius: "0.5em",
+        fontSize:"18px", fontWeight:"700", color:"white"}}>Submit</button>
       </form>
         ):(
-          <div style={{ textAlign: "center" }}>
-          <h2>Thank you for submitting!</h2>
+          <div style={{ textAlign: "center", color:"white" , }}>
+          <h2 >Thank you for submitting!</h2>
         </div>
         )}
     </div>

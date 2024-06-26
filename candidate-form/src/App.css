@@ -1,15 +1,16 @@
 #root {
+  margin: -0.5em ;
 
-  margin: 0 auto;
   padding: 2rem;
   text-align: center;
-
+ width: 100%;
+ background-color: #071818;
 }
 
 .forms {
   display: flex;
   justify-content: center;
-  margin-top: 5em;
+  margin-top: 3em;
 }
 
 .form-group {
@@ -18,20 +19,25 @@
 }
 
 .names{
-  font-size: 18px;
+  font-size: 20px;
+  color: #bec2c2;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .candi-name{
   margin-top: -10px;
-  padding:  8px;
+  padding:  15px;
   width: 250px;
+  border-radius: 1em;
+  background-color: #bec2c2;
 }
 
 .document{
   display: flex;
   justify-content: center;
   margin-top: 5em;
+  font-size: 20px;
+ color: #bec2c2;
 }
 
 .document-group{
@@ -55,4 +61,12 @@
   margin-top: -10px;
   padding:  8px;
   width: 130px;
+}
+
+.btn {
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.04);
 }
